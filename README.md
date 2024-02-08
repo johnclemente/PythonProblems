@@ -1,2 +1,2 @@
-# Game-Test
-Just a test so I can learn how GitHub works :)
+# Let's solve some problems.
+Here are some fun puzzles to solve!
