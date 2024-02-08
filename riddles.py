@@ -21,5 +21,4 @@ def ask_riddles(riddles_with_answers):
 
     print(f"Your final score is {score}/{len(riddles_with_answers)}")
 
-# Since we cannot run interactive input in this notebook, 
-# copy this code into a Python script to execute it in your local environment.
+ask_riddles(riddles_with_answers)
