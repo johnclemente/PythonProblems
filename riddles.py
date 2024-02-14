@@ -1,3 +1,6 @@
+import tkinter as tk
+from tkinter import simpledialog, messagebox
+
 # Define the riddles and their possible answers
 riddles_with_answers = [
     ("I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?", ["echo"]),
@@ -7,18 +10,47 @@ riddles_with_answers = [
     ("What has keys but can't open locks?", ["piano"])
 ]
 
-def ask_riddles(riddles_with_answers):
-    score = 0
-    for riddle, possible_answers in riddles_with_answers:
-        print(riddle)
-        user_answer = input("Your answer: ").lower().strip()
+class RiddlesApp(tk.Tk):
+    def __init__(self, riddles_with_answers):
+        super().__init__()
+        self.riddles_with_answers = riddles_with_answers
+        self.current_riddle_index = 0
+        self.score = 0
+        self.title("Riddle Me This!")
+        self.geometry("400x200")
+        self.riddle_label = tk.Label(self, text="", wraplength=380)
+        self.riddle_label.pack(pady=20)
+        self.answer_entry = tk.Entry(self)
+        self.answer_entry.bind("<Return>", self.check_answer)  # Bind the Return key to check the answer
+        self.answer_entry.pack()
+        self.next_button = tk.Button(self, text="Next", command=self.next_riddle)
+        self.next_button.pack(pady=10)
+        self.display_current_riddle()
+
+    def display_current_riddle(self):
+        riddle, _ = self.riddles_with_answers[self.current_riddle_index]
+        self.riddle_label.config(text=riddle)
+        self.answer_entry.delete(0, tk.END)
+        self.answer_entry.focus()
+
+    def check_answer(self, event=None):
+        user_answer = self.answer_entry.get().lower().strip()
+        _, possible_answers = self.riddles_with_answers[self.current_riddle_index]
         if user_answer in possible_answers:
-            print("Correct!")
-            score += 1
+            messagebox.showinfo("Result", "Correct!")
+            self.score += 1
         else:
-            print(f"Wrong! A correct answer could have been: {possible_answers[0]}")
-        print()  # New line for readability
+            messagebox.showinfo("Result", f"Wrong! A correct answer could have been: {possible_answers[0]}")
+        self.next_riddle()
 
-    print(f"Your final score is {score}/{len(riddles_with_answers)}")
+    def next_riddle(self):
+        self.current_riddle_index += 1
+        if self.current_riddle_index < len(self.riddles_with_answers):
+            self.display_current_riddle()
+        else:
+            messagebox.showinfo("Game Over", f"Your final score is {self.score}/{len(self.riddles_with_answers)}")
+            self.destroy()
 
-ask_riddles(riddles_with_answers)
+if __name__ == "__main__":
+    app = RiddlesApp(riddles_with_answers)
+    app.mainloop()
