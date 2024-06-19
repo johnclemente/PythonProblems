@@ -1,6 +1,6 @@
 # Riddle Game
 
-Welcome to the Riddle Game! This Python script challenges users with a series of riddles. The user has to provide answers, and the script checks if the provided answers are correct. It's a fun and interactive way to test your riddle-solving skills.
+Welcome to the Riddle Game! This Python script challenges users with a series of riddles. The user has to provide answers, and the script checks if the provided answers are correct. It's a fun and interactive way to test your riddle-solving skills. OR if you're like me, it's a fun way to learn and contribute to an open-source project!
 
 ## Features
 
