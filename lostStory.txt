@@ -1,9 +1,0 @@
-Main game mechanic: using logic to figure out the correct input to progress the story along.
-
-Story: You are speaking with different people and not sure of what your objective is. As the story continues you realize that you are a detective and you are an undercover agent conducting an investigation of a murder. You must then solve the case using the information you have gathered along the way. 
-
-Location: Rural Arizona
-
-Murder: 
-
-Script:
