@@ -1,8 +1,72 @@
-# My general catch-all python repo
+# General catch-all python repo
 
-This repo contains some scripts for some text-based games I have messed around with and a problems folder for leetcode style questions that I think are fun.
+This repo is for python scripts I find interesting. It includes text-based games I’ve experimented with, as well as a problems folder dedicated to LeetCode-style problems that I find particularly interesting and enjoyable to solve.
 
-## Riddle Game
+## Problems
+
+### triangle.py
+
+You are given an integer n representing the number of rows in a triangle. Implement a function that prints a right-aligned triangle pattern using spaces and the character 'x'.
+
+Each row of the triangle should contain the appropriate number of leading spaces followed by the character 'x' repeated according to the row number.
+
+The pattern should look like this:
+
+```Python
+       x
+      x x
+     x x x
+    x x x x
+   x x x x x
+```
+
+Function Signature
+
+```python
+def triangle(n: int) -> None:
+```
+
+Input:
+
+```python
+n (1 ≤ n ≤ 100): An integer representing the number of rows in the triangle.
+```
+
+<br>
+<br>
+
+### square.py
+
+You are given an integer n representing the length of one side of the square. Implement a function that prints an empty square pattern using spaces and the character 'x'.
+
+I found this one on youtube shorts and had to try XD
+
+The pattern should look like this:
+
+```Python
+x x x
+x   x
+x x x
+```
+
+Function Signature
+
+```python
+def square(n: int) -> None:
+```
+
+Input:
+
+```python
+n (1 ≤ n ≤ 100): An integer representing the length of one side of the square.
+```
+
+<br>
+<br>
+<br>
+<br>
+
+## Game Idea
 
 ```python
 # Define the riddles and their possible answers
