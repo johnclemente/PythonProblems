@@ -1,17 +1,8 @@
-# Riddle Game
+# My general catch-all python repo
 
-Welcome to the Riddle Game! This Python script challenges users with a series of riddles. The user has to provide answers, and the script checks if the provided answers are correct. It's a fun and interactive way to test your riddle-solving skills. OR if you're like me, it's a fun way to learn and contribute to an open-source project!
+This repo contains some scripts for some text-based games I have messed around with and a problems folder for leetcode style questions that I think are fun.
 
-## Features
-
-- A set of predefined riddles with multiple possible correct answers.
-- A scoring system to keep track of correct answers.
-
-## Usage
-
-To run the riddle game, simply execute the script in a Python environment. The script will present each riddle, wait for the user's answer, and then provide feedback on whether the answer is correct or not.
-
-### Example
+## Riddle Game
 
 ```python
 # Define the riddles and their possible answers
@@ -39,26 +30,3 @@ def ask_riddles(riddles_with_answers):
 
 ask_riddles(riddles_with_answers)
 ```
-
-## Contributing
-
-I welcome contributions to enhance the Riddle Game! Here are some guidelines to help you get started:
-
-Adding New Riddles
-
-Define the riddle: Add your new riddle and its possible answers to the riddles_with_answers list.
-
-```python
-riddles_with_answers.append(
-    ("Your riddle here?", ["correct", "answers", "comma", "separated"])
-)
-```
-
-Please make sure the format: Make sure your riddle follows the same format as the existing ones.
-
-## Desired features
-
-- GUI: Develop a visually appealing GUI using frameworks like Tkinter, PyQt, or web-based interfaces with Flask/Django.
-- Responsive Design: Ensure the game can be played on various devices, including desktops, tablets, and smartphones.
-- Multiplayer: the ability to play with friends online.
-
