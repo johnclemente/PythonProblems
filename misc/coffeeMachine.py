@@ -1,3 +1,5 @@
+import math
+import sys
 # requirements
 
 """1. Prompt user by asking “ What would you like? (espresso/latte/cappuccino): ”
@@ -37,3 +39,104 @@ a. When the user enters “report” to the prompt, a report should be generated
     Coffee: 76g
     Money: $2.5
     c. If the user has inserted too much money, the machine should offer change. """
+
+machineResources = {'milk':0, 'water':100, 'coffee': 76, 'money': 2.5}
+
+cappiccinoCost = {'milk':5, 'water':10, 'coffee': 10, 'money': 1}
+latteCost = {'milk':20, 'water':0, 'coffee': 10, 'money': 1}
+espressoCost = {'milk':0, 'water':10, 'coffee': 10, 'money': 1}
+
+def main():
+    print("Welcome to the coin-operated coffee machine. Would you like a (c)appiccino, a (l)atte, or a (e)spresso?")
+    userInput = "" 
+    while userInput not in ["report","off","add resources","e","l","c"]:
+        userInput = input("what do you want? ")
+    if userInput == "report":
+        report()
+    if userInput == "e":
+        for resource in espressoCost.keys():
+            if espressoCost[resource] > machineResources[resource]:
+                print(f'not enough of {resource} for espresso')
+                main()
+            else:
+                paymentProcess()
+                print("Enjoy your espresso!")
+                print("Returning back to main menu")
+                main()
+    if userInput == "l":
+        for resource in latteCost.keys():
+            if latteCost[resource] > machineResources[resource]:
+                print(f'not enough of {resource} for latte')
+                main()
+            else:
+                paymentProcess()
+    if userInput == "c":
+        for resource in cappiccinoCost.keys():
+            if cappiccinoCost[resource] > machineResources[resource]:
+                print(f'not enough of {resource} for cappiccino')
+            if cappiccinoCost[resource] > machineResources[resource]:
+                main()
+            else:
+                paymentProcess()
+    if userInput == "add resources":
+        addResources()
+        main() 
+    if userInput == "off":
+        print("goodbye")
+        sys.exit()
+        
+def addResources():
+    resource = ""
+    amount = ""
+    print("Welcome machine maintainer person")
+    while resource not in ["milk", "water"]:
+        resource = input("what would you like to add? ")
+    if resource == "milk":
+        amount = input("how much?: ")
+        amount = int(amount)
+        machineResources["milk"] = machineResources["milk"] + amount
+    if resource == "water":
+        amount = input("how much?: ")
+        amount = int(amount)
+        machineResources["water"] = machineResources["water"] + amount
+            
+def paymentProcess():
+    quartersStr = input("Please provide your number of quarters: ")
+    dimesStr = input("Please provide your number of dimes: ")
+    nickelsStr = input("Please provide your number of nickels: ")
+    penniesStr = input("Please provide your number of pennies: ")
+    
+    quarters = int(quartersStr)
+    dimes = int(dimesStr)
+    nickels = int(nickelsStr)
+    pennies = int(penniesStr) 
+    
+    totalPennies = (quarters*25) + (dimes*10) + (nickels*5) + (pennies)
+    totalMoney = totalPennies/100
+
+    drinkCost = int(machineResources["money"])
+    if totalMoney >= drinkCost:
+        change = totalMoney - drinkCost
+        actualChnage = round()
+        print(f"you provided {totalMoney}")
+        print(f"cost of drink is: {drinkCost}")
+        print(f"{change} is your change")
+    else:
+        print("That is not enough money")
+        print(f"you provided {totalMoney}")
+        print(f"cost of drink is: {drinkCost}")
+        print(f"{change} has been returned, please provide enough next time")
+        print("returning to menu")
+        main()
+
+
+    
+                    
+                
+        
+def report():
+    print(machineResources.items()) 
+    main()
+    
+        
+main() 
